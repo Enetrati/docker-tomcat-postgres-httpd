@@ -10,8 +10,6 @@ RUN rm -rf /usr/local/tomcat/webapps/examples
 
 VOLUME ["/usr/local/tomcat/logs"]
 
-VOLUME ["/usr/local/tomcat/webapps"]
-
 EXPOSE 8009
 
 EXPOSE 8080
