@@ -2,7 +2,6 @@ version: '3'
 services:
   db:
     image: postgres:9.6-alpine
-
     networks:
       mynetwork:
         aliases:
@@ -11,8 +10,8 @@ services:
   app:
     depends_on:
       - db
-#   volumes:
-#     - ./logs:/usr/local/tomcat/logs
+    volumes:
+      - ./logs:/usr/local/tomcat/logs
     ports:
       - 8009
       - 8080
@@ -26,8 +25,8 @@ services:
     depends_on:
       - db
       - app
-#   volumes:
-#     - ./logs:/var/log/apache2
+    volumes:
+      - ./logs:/var/log/apache2
     ports:
       - "80:80"
       - "443:443"
@@ -37,7 +36,5 @@ services:
       mynetwork:
         aliases:
           - web.exam.ext
-
-
 networks:
   mynetwork:
