@@ -12,6 +12,7 @@ services:
       - db
     volumes:
       - ./logs:/usr/local/tomcat/logs
+      - ./webapps:/usr/local/tomcat/webapps
     ports:
       - 8009
       - 8080
