@@ -1,6 +1,8 @@
 version: '3'
 services:
   db:
+    environment:
+      - DOCKER_HOST=tcp://192.168.99.100:2376
     image: postgres:9.6-alpine
     networks:
       mynetwork:
@@ -8,6 +10,8 @@ services:
           - db.exam.ext
     hostname: db
   app:
+    environment:
+      - DOCKER_HOST=tcp://192.168.99.100:2376
     depends_on:
       - db
     volumes:
@@ -22,6 +26,8 @@ services:
         aliases:
           - app.exam.ext
   web:
+    environment:
+      - DOCKER_HOST=tcp://192.168.99.100:2376
     depends_on:
       - db
       - app
